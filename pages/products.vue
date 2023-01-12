@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1>홈 페이지</h1>
-    <p>넉스트 시작하기</p>
-  </div>
+  <div>프로덕트 페이지</div>
 </template>
 
 <script>
