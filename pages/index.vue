@@ -18,6 +18,9 @@
           <span>{{ product.price }}</span>
         </li>
       </ul>
+      <div class="cart-wrapper">
+        <button class="btn" @click="moveToCartPage">장바구니 바로가기</button>
+      </div>
     </main>
   </div>
 </template>
@@ -47,10 +50,16 @@
       },
       async searchProducts() {
         const response = await fetchProductsByKeyword(this.searchKeyword);
+        // map은 해당 배열의 값을 전부 꺼내서 개별로 계산해준다
         this.products = response.data.map((item) => ({
+          // ...item은 명시된 key(imageUrl)을 제외한 나머지 key들을 의미 (생략해줌)
+          //  해당 코드는 response.data의 배열들([item,item,item])을 개별로 꺼내서 imageUrl만 수정해주는 것
           ...item,
           imageUrl: `${item.imageUrl}?random=${Math.random()}`,
         }));
+      },
+      moveToCartPage() {
+        this.$router.push("/cart");
       },
     },
   };
