@@ -16,4 +16,17 @@ function fetchProductsByKeyword(keyword) {
   });
 }
 
-export { fetchProductById, fetchProductsByKeyword };
+function fetchCartItems() {
+  return instance.get("/carts");
+}
+
+function createCartItem(cartItem) {
+  return instance.post("/carts", cartItem);
+}
+
+export {
+  fetchProductById,
+  fetchProductsByKeyword,
+  fetchCartItems,
+  createCartItem,
+};
