@@ -22,12 +22,17 @@
 </template>
 
 <script>
-  import { FETCH_CART_ITEMS } from "~/store";
+  // import { FETCH_CART_ITEMS } from "~/store";
   export default {
-    async asyncData({ store }) {
-      await store.dispatch(FETCH_CART_ITEMS);
-      const cartItems = store.state.cartItems;
-      return { cartItems };
+    // async asyncData({ store }) {
+    //   await store.dispatch(FETCH_CART_ITEMS);
+    //   const cartItems = store.state.cartItems;
+    //   return { cartItems };
+    // },
+    computed: {
+      cartItems() {
+        return this.$store.state.cartItems;
+      },
     },
   };
 </script>

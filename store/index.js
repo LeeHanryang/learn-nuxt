@@ -28,7 +28,15 @@ export const actions = {
       imageUrl: `${item.imageUrl}?random=${Math.random()}`,
     }));
     commit("setCartItems", cartItems);
-    // return cartItems;
   },
-  nuxtServerInit() {},
+  // nuxtServerInit은 여러개의 데이터가 있을 가능성이 높으므로 개별로 actions를 만들어 호출하는게 낫다.
+  async nuxtServerInit(storeContext, nuxtContext) {
+    await storeContext.dispatch("FETCH_CART_ITEMS");
+    // const { data } = await fetchCartItems();
+    // const cartItems = data.map((item) => ({
+    //   ...item,
+    //   imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+    // }));
+    // storeContext.commit("setCartItems", cartItems);
+  },
 };
