@@ -2,10 +2,14 @@
   <div class="app">
     <main>
       <div>
-        <input type="text" />
+        <SearchInput v-model="searchKeyword" @search="searchProducts" />
       </div>
       <ul>
-        <li v-for="product in products" :key="product.id" class="item flex">
+        <li
+          v-for="product in products"
+          :key="product.id"
+          class="item flex"
+          @click="moveToDetailPage(product.id)">
           <img
             class="product-image"
             :src="product.imageUrl"
@@ -20,28 +24,35 @@
 
 <script>
   import axios from "axios";
-  // import ProductList from "~/components/ProductList.vue";
+  import SearchInput from "@/components/SearchInput";
+  import { fetchProductsByKeyword } from "~/api";
   export default {
-    // components: { ProductList },
+    components: { SearchInput },
     async asyncData() {
       const response = await axios.get("http://localhost:3000/products");
-      // const products = response.data.map((item) => {
-      //   return {
-      //     ...item,
-      //     imageUrl: `${item.imageUrl}?random=${Math.random()}`,
-      // };
       const products = response.data.map((item) => ({
         ...item,
         imageUrl: `${item.imageUrl}?random=${Math.random()}`,
       }));
       return { products };
     },
-    // data() {
-    //   return {
-    //     products: [],
-    //   };
-    // },
-    // async created() {},
+    data() {
+      return {
+        searchKeyword: "",
+      };
+    },
+    methods: {
+      moveToDetailPage(id) {
+        this.$router.push(`products/${id}`);
+      },
+      async searchProducts() {
+        const response = await fetchProductsByKeyword(this.searchKeyword);
+        this.products = response.data.map((item) => ({
+          ...item,
+          imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+        }));
+      },
+    },
   };
 </script>
 
