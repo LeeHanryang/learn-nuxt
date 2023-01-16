@@ -1,4 +1,6 @@
 export default {
+  // target: "static",
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "learn-nuxt",
@@ -41,9 +43,16 @@ export default {
       },
     },
   },
+  // port setup
   server: {
     // port: 5000,
     port: process.env.NODE_ENV === "production" ? null : 5000,
   },
-  // env: {}
+  // env setup config
+  env: {
+    baseUrl:
+      process.env.NODE_ENV === "production"
+        ? "https://my-json-server.typicode.com/LeeHanryang/nuxt-shopping-api"
+        : "http://localhost:3000",
+  },
 };
