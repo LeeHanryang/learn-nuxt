@@ -11,14 +11,24 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
+        hid: "description",
+        name: "description",
+        content: "안되는 기능이 많다. 놀랄만큼 매우 허접한게 특징이다.",
+      },
+      {
         hid: "og:title",
         property: "og:title",
         content: "Nuxt를 사용한 쇼핑몰",
       },
       {
         hid: "og:description",
-        name: "og:description",
+        property: "og:description",
         content: "안되는 기능이 많다. 놀랄만큼 매우 허접한게 특징이다.",
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "http://placeimg.com/640/480/fashion",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
