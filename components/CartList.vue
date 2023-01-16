@@ -13,12 +13,14 @@
 </template>
 
 <script>
+  import { FETCH_CART_ITEMS } from "~/store";
   export default {
-    props: {
-      // eslint-disable-next-line vue/require-prop-types
-      cartItems: {
-        type: [],
-        default: () => "",
+    async fetch() {
+      await this.$store.dispatch(FETCH_CART_ITEMS);
+    },
+    computed: {
+      cartItems() {
+        return this.$store.state.cartItems;
       },
     },
   };

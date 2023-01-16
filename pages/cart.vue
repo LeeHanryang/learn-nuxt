@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="list-title">담긴 상품 목록</h1>
-    <cart-list :cart-items="cartItems" />
+    <cart-list />
     <div class="extra-panel">
       <button>구매하기</button>
     </div>
@@ -13,11 +13,6 @@
 
   export default {
     components: { CartList },
-    computed: {
-      cartItems() {
-        return this.$store.state.cartItems;
-      },
-    },
   };
 </script>
 
