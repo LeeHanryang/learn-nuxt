@@ -3,14 +3,19 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "learn-nuxt",
+    title: "매우 허접한 쇼핑몰",
     htmlAttrs: {
       lang: "en",
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Nuxt를 사용하여 만든 쇼핑몰. 놀랄만큼 매우 허접한게 특징이다.",
+      },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
