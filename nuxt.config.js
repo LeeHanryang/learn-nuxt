@@ -11,10 +11,14 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: "description",
-        name: "description",
-        content:
-          "Nuxt를 사용하여 만든 쇼핑몰. 놀랄만큼 매우 허접한게 특징이다.",
+        hid: "og:title",
+        property: "og:title",
+        content: "Nuxt를 사용한 쇼핑몰",
+      },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: "안되는 기능이 많다. 놀랄만큼 매우 허접한게 특징이다.",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
