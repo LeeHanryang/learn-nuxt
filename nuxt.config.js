@@ -10,11 +10,11 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: "안되는 기능이 많다. 놀랄만큼 매우 허접한게 특징이다.",
-      },
+      // {
+      //   hid: "description",
+      //   name: "description",
+      //   content: "안되는 기능이 많다. 놀랄만큼 매우 허접한게 특징이다.",
+      // },
       {
         hid: "og:title",
         property: "og:title",
